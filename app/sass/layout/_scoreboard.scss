@@ -1,0 +1,69 @@
+.scoreboard {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    @include flexCenter;
+    flex-wrap: wrap;
+
+    @include mq(800px) {
+        justify-content: space-between;
+        max-width: 800px;
+    }
+
+    &__section {
+        width: calc(100% - 5px);
+        max-width: 500px;
+
+        @include mq(800px) {
+            max-width: 395px;
+        }
+    }
+
+    &__header {
+        width: 100%;
+        background-color: $text-color;
+        color: $bgcolor;
+        @include flexCenter;
+        justify-content: space-between;
+
+        p {
+            margin: 0 10px;
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        font-size: 1.25rem;
+    }
+
+    &__score {
+        @include flexCenter;
+        width: 50%;
+        min-height: 2.5rem;
+        border: 2px solid $text-color;
+
+        @include mqMinWMaxH($md, $lg) {
+            min-height: 1.5rem;
+        }
+
+        &:first-child {
+            border-right: 0;
+        }
+
+        &:focus {
+            outline: none;
+            background-color: $text-color;
+            color: $bgcolor;
+        }
+    }
+
+    &__section:last-child {
+        margin-top: 10px;
+        @include mq(800px) {
+            margin-top: 0;
+        }
+    }
+}
